@@ -1,0 +1,33 @@
+<html>
+<head>
+<title> BMI </title>
+</head>
+<body>
+
+<h1> Body Mass Index</h1>
+
+<script >
+
+
+var marks_weight = prompt(" weight " , " enter ");
+var marks_height = prompt(" height " , " enter ");
+var johns_weight = prompt(" weight " , " enter ");
+var johns_height = prompt(" height " , " enter ");
+
+var BMI_1 = marks_weight/(marks_height * marks_height);
+
+var BMI_2 = johns_weight/(johns_height * johns_height);
+document.write(" Is Marks BMI greater than Johns?" )
+
+if(BMI_1 > BMI_2)
+{
+  document.write(true);
+}
+else
+{
+ document.write(false);
+}
+
+</script>
+</body>
+</html>

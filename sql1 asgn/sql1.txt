@@ -236,12 +236,6 @@ JONES      MANAGER         2975
 SCOTT      ANALYST         3000
 FORD       ANALYST         3000
 
-SQL> select ename from emp where dept=30 and job='salesman' and sal>=1500;
-select ename from emp where dept=30 and job='salesman' and sal>=1500
-                            *
-ERROR at line 1:
-ORA-00904: "DEPT": invalid identifier
-
 
 SQL> select ename from emp where deptno=30 and job='salesman' and sal>=1500;
 
@@ -250,21 +244,6 @@ no rows selected
 SQL> select ename from emp where (deptno=30 and job='salesman' and sal>=1500);
 
 no rows selected
-
-SQL> select ename from emp where in \(deptno=30 and job='salesman' and sal>=1500
-);
-select ename from emp where in \(deptno=30 and job='salesman' and sal>=1500)
-                            *
-ERROR at line 1:
-ORA-00936: missing expression
-
-
-SQL> select ename from emp where in (deptno=30 and job='salesman' and sal>=1500)
-;
-select ename from emp where in (deptno=30 and job='salesman' and sal>=1500)
-                            *
-ERROR at line 1:
-ORA-00936: missing expression
 
 
 SQL> select ename from emp where (deptno=30 and job='SALESMAN' and sal>=1500);
@@ -298,13 +277,6 @@ CLARK
 ----------
       7782 CLARK      MANAGER         7839 09-JUN-81       2450
         10
-
-
-SQL> SELECT * FROM EMP WHERE DEPTNO = 10 AND JOB IN ('MANAGER',('CLERK');
-SELECT * FROM EMP WHERE DEPTNO = 10 AND JOB IN ('MANAGER',('CLERK')
-                                                                  *
-ERROR at line 1:
-ORA-00907: missing right parenthesis
 
 
 SQL> SELECT * FROM EMP WHERE DEPTNO = 10 AND JOB IN ('MANAGER','CLERK');
@@ -366,12 +338,6 @@ SCOTT
 KING
 FORD
 
-SQL> SELECT ENAME FROM EMP WHERE 1200<SAL<1400;
-SELECT ENAME FROM EMP WHERE 1200<SAL<1400
-                                    *
-ERROR at line 1:
-ORA-00933: SQL command not properly ended
-
 
 SQL> SELECT ENAME FROM EMP WHERE SAL BETWEEN 1200 AND 1400;
 
@@ -397,12 +363,6 @@ MILLER
 
 9 rows selected.
 
-SQL> SELECT ENAME FROM EMP WHERE JOB IN (UPPER('CLERK)','ANALYST','SALESMAN');
-SELECT ENAME FROM EMP WHERE JOB IN (UPPER('CLERK)','ANALYST','SALESMAN')
-                                    *
-ERROR at line 1:
-ORA-00909: invalid number of arguments
-
 
 SQL> SELECT ENAME FROM EMP WHERE JOB IN (UPPER('CLERK'),'ANALYST','SALESMAN');
 
@@ -419,13 +379,6 @@ FORD
 MILLER
 
 9 rows selected.
-
-SQL> SELECT ENAME FROM EMP WHERE UPPER(JOB) IN UPPER('CLERK','ANALYST','SALESMAN
-');
-SELECT ENAME FROM EMP WHERE UPPER(JOB) IN UPPER('CLERK','ANALYST','SALESMAN')
-                                          *
-ERROR at line 1:
-ORA-00909: invalid number of arguments
 
 
 SQL> SELECT ENAME FROM EMP WHERE UPPER(JOB) IN (UPPER('CLERK'),'ANALYST','SALESM
@@ -479,12 +432,6 @@ ENAME
 ----------
 TURNER
 
-SQL> SELECT JOB, ENAME WHERE COMM IS NOT NULL;
-SELECT JOB, ENAME WHERE COMM IS NOT NULL
-                  *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
 
 SQL> SELECT JOB, ENAME FROM EMP WHERE COMM IS NOT NULL;
 
@@ -523,19 +470,6 @@ SQL> SELECT ENAME FROM EMP WHERE COMM  BETWEEN 0 AND 100;
 ENAME
 ----------
 TURNER
-
-SQL> SELECT ENAME FROM EMP WHERE COMM  BETWEEN 0 AND 100 OR NULL;
-SELECT ENAME FROM EMP WHERE COMM  BETWEEN 0 AND 100 OR NULL
-                                                          *
-ERROR at line 1:
-ORA-00920: invalid relational operator
-
-
-SQL> SELECT ENAME FROM EMP WHERE COMM  (BETWEEN 0 AND 100) OR NULL;
-SELECT ENAME FROM EMP WHERE COMM  (BETWEEN 0 AND 100) OR NULL
-                                   *
-ERROR at line 1:
-ORA-00936: missing expression
 
 
 SQL> SELECT ENAME FROM EMP WHERE COMM IS NULL OR COMM BETWEEN 0 AND 100;
@@ -669,26 +603,6 @@ SQL> SELECT ENAME FROM EMP WHERE (SAL+COMM>2000);
 ENAME
 ----------
 MARTIN
-
-SQL> INSERT INTO EMP NVL(COMM,250);
-INSERT INTO EMP NVL(COMM,250)
-                         *
-ERROR at line 1:
-ORA-01747: invalid user.table.column, table.column, or column specification
-
-
-SQL> INSERT INTO EMP NVLL(COMM,250);
-INSERT INTO EMP NVLL(COMM,250)
-                          *
-ERROR at line 1:
-ORA-01747: invalid user.table.column, table.column, or column specification
-
-
-SQL> SELECT NVL(COMM,250);
-SELECT NVL(COMM,250)
-                   *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
 
 
 SQL> SELECT NVL(COMM,250) FROM EMP;
@@ -838,12 +752,6 @@ FORD                  3000
 
 7 rows selected.
 
-SQL> SELECT ENAME FROM EMP WHERE ENAME LIKE M%;
-SELECT ENAME FROM EMP WHERE ENAME LIKE M%
-                                        *
-ERROR at line 1:
-ORA-00911: invalid character
-
 
 SQL> SELECT ENAME FROM EMP WHERE ENAME LIKE 'M%';
 
@@ -969,12 +877,6 @@ ENAME
 ALLEN
 WARD
 
-SQL> SELECT LAST_DATE(HIREDATE) FROM EMP;
-SELECT LAST_DATE(HIREDATE) FROM EMP
-       *
-ERROR at line 1:
-ORA-00904: "LAST_DATE": invalid identifier
-
 
 SQL> SELECT LAST_DAY(HIREDATE) FROM EMP;
 
@@ -999,16 +901,6 @@ LAST_DAY(
 31-JAN-82
 
 14 rows selected.
-
-SQL> SELECT ENAME FROM EMP WHERE LAST_DAY(HIREDATE)=HIREDATE;
-
-no rows selected
-
-SQL> SELECT ENAME FRO,M EMP WHERE (SYSDATE-HIREDATE) > 12;
-SELECT ENAME FRO,M EMP WHERE (SYSDATE-HIREDATE) > 12
-                       *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
 
 
 SQL> SELECT ENAME FROM EMP WHERE (SYSDATE-HIREDATE) > 12;
@@ -1040,14 +932,6 @@ SQL> SELECT ENAME FROM EMP WHERE JOB='MANAGER' AND HIREDATE LIKE '%2007';
 no rows selected
 
 
-
-SQL> SELECT ENAME CONCAT(,JOB) FROM EMP;
-SELECT ENAME CONCAT(,JOB) FROM EMP
-                   *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
 SQL> SELECT CONCAT('ENAME',', JOB') FROM EMP;
 
 CONCAT('EN
@@ -1071,12 +955,6 @@ ENAME, JOB
 ENAME, JOB
 
 14 rows selected.
-
-SQL> SELECT CONCAT(ENAME,, JOB) FROM EMP;
-SELECT CONCAT(ENAME,, JOB) FROM EMP
-                    *
-ERROR at line 1:
-ORA-00936: missing expression
 
 
 SQL> SELECT CONCAT(ENAME, JOB) FROM EMP;
@@ -1126,19 +1004,6 @@ FORDANALYST
 MILLERCLERK
 
 14 rows selected.
-
-SQL> SELECT CONCAT(ENAME , ,JOB) FROM EMP;
-SELECT CONCAT(ENAME , ,JOB) FROM EMP
-                      *
-ERROR at line 1:
-ORA-00936: missing expression
-
-
-SQL> SELECT CONCAT(ENAME , , ,JOB) FROM EMP;
-SELECT CONCAT(ENAME , , ,JOB) FROM EMP
-                      *
-ERROR at line 1:
-ORA-00936: missing expression
 
 
 SQL> SELECT ENAME || ',' JOB FROM EMP;
@@ -1237,12 +1102,6 @@ MILLER ,CLERK
 
 14 rows selected.
 
-SQL> SELECT CONCAT(SUBSTR(ENAME,1,1), LOWER(SUBSTR(ENAME,2,4)));
-SELECT CONCAT(SUBSTR(ENAME,1,1), LOWER(SUBSTR(ENAME,2,4)))
-                                                         *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
 
 SQL> SELECT CONCAT(SUBSTR(ENAME,1,1), LOWER(SUBSTR(ENAME,2,4))) FROM EMP;
 
@@ -1292,14 +1151,6 @@ Miller
 
 14 rows selected.
 
-SQL> SELECT CONCAT(UPPER(SUBSTR(ENAME,1,1)), LOWER(SUBSTR(ENAME,2,LENGTH(ENAME))
-) FROM EMP;
-SELECT CONCAT(UPPER(SUBSTR(ENAME,1,1)), LOWER(SUBSTR(ENAME,2,LENGTH(ENAME))) FRO
-M EMP
-                                                                             *
-ERROR at line 1:
-ORA-00907: missing right parenthesis
-
 
 SQL> SELECT CONCAT(UPPER(SUBSTR(ENAME,1,1)), LOWER(SUBSTR(ENAME,2,LENGTH(ENAME))
 )) FROM EMP;
@@ -1327,22 +1178,6 @@ Miller
 14 rows selected.
 
 
-
-
-SQL> SELECT ENAME FROM EMP JUSTIFY RIGHT;
-SELECT ENAME FROM EMP JUSTIFY RIGHT
-                                  *
-ERROR at line 1:
-ORA-00905: missing keyword
-
-
-SQL> SELECT ENAME LPAD(ENAME,15,' ') FROM EMP;
-SELECT ENAME LPAD(ENAME,15,' ') FROM EMP
-                 *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
 SQL> SELECT LPAD(ENAME,15,' ')ENAME FROM EMP;
 
 ENAME
@@ -1366,12 +1201,6 @@ ENAME
          MILLER
 
 14 rows selected.
-
-SQL> SELECT LPAD(,15,' ')ENAME FROM EMP;
-SELECT LPAD(,15,' ')ENAME FROM EMP
-            *
-ERROR at line 1:
-ORA-00936: missing expression
 
 
 SQL> SELECT LPAD(DEPTNO,15,' ')ENAME FROM EMP;
@@ -1637,31 +1466,6 @@ MILLER
 
 14 rows selected.
 
-SQL> SELECT SUBSTR((SELECT ENAME FROM EMP WHERE ENAME LIKE 'A%'), 2, LENGTH(ENAM
-E));
-SELECT SUBSTR((SELECT ENAME FROM EMP WHERE ENAME LIKE 'A%'), 2, LENGTH(ENAME))
-                                                                             *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
-SQL> SELECT SUBSTR((SELECT ENAME FROM EMP WHERE ENAME LIKE 'A%'), 2, LENGTH(ENAM
-E)) FROM EMP;
-SELECT SUBSTR((SELECT ENAME FROM EMP WHERE ENAME LIKE 'A%'), 2, LENGTH(ENAME)) F
-ROM EMP
-               *
-ERROR at line 1:
-ORA-01427: single-row subquery returns more than one row
-
-
-SQL> SELECT SUBSTR((SELECT ENAME FROM EMP WHERE ENAME LIKE 'A%'), 2, LENGTH(ENAM
-E)) FROM EMP;
-SELECT SUBSTR((SELECT ENAME FROM EMP WHERE ENAME LIKE 'A%'), 2, LENGTH(ENAME)) F
-ROM EMP
-               *
-ERROR at line 1:
-ORA-01427: single-row subquery returns more than one row
-
 
 SQL> SELECT TRIM(LEADING 'A' FROM ENAME) FROM EMP;
 
@@ -1863,19 +1667,6 @@ SQL> SELECT SAL/30 FROM EMP;
 
 14 rows selected.
 
-SQL> SELECT MONTH(SYSDATE-HIREDATE) FROM EMP;
-SELECT MONTH(SYSDATE-HIREDATE) FROM EMP
-       *
-ERROR at line 1:
-ORA-00904: "MONTH": invalid identifier
-
-
-SQL> SELECT MONTHS-BETWEEN(HIREDATE,SYSDATE) FROM EMP;
-SELECT MONTHS-BETWEEN(HIREDATE,SYSDATE) FROM EMP
-              *
-ERROR at line 1:
-ORA-00936: missing expression
-
 
 SQL> SELECT MONTHS_BETWEEN(HIREDATE,SYSDATE) FROM EMP;
 
@@ -1997,76 +1788,6 @@ SQL> SELECT FLOOR((SYSDATE-HIREDATE)/360) "YEARS" FROM EMP;
         37
 
 14 rows selected.
-
-SQL> SELECT FLOOR((SYSDATE-HIREDATE)/360) "YEARS" ((SYSDATE-HIREDATE)/360)-FROM
-EMP;
-SELECT FLOOR((SYSDATE-HIREDATE)/360) "YEARS" ((SYSDATE-HIREDATE)/360)-FROM EMP
-                                             *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
-SQL> SELECT FLOOR((SYSDATE-HIREDATE)/360) "YEARS" ((SYSDATE-HIREDATE)/360)-
-> FLOOR((SYSDATE-HIREDATE)/360))*12 FROM EMP;
-SELECT FLOOR((SYSDATE-HIREDATE)/360) "YEARS" ((SYSDATE-HIREDATE)/360) FLOOR((SYS
-DATE-HIREDATE)/360))*12 FROM EMP
-                                             *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
-SQL> SELECT FLOOR((SYSDATE-HIREDATE)/360) "YEARS" (((SYSDATE-HIREDATE)/360)-
-> FLOOR((SYSDATE-HIREDATE)/360))*12 "MONTHS" FROM EMP;
-SELECT FLOOR((SYSDATE-HIREDATE)/360) "YEARS" (((SYSDATE-HIREDATE)/360) FLOOR((SY
-SDATE-HIREDATE)/360))*12 "MONTHS" FROM EMP
-                                             *
-ERROR at line 1:
-ORA-00923: FROM keyword not found where expected
-
-
-SQL> SELECT name , ' ' ||
-  2      FLOOR(MONTHS_BETWEEN(to_date(SYSDATE),to_date(date_of_birth))/12)||' ye
-ars ' ||
-  3      FLOOR(MOD(MONTHS_BETWEEN(to_date(SYSDATE),to_date(date_of_birth)),12))
-|| ' months ' ||
-  4      FLOOR(MOD(MOD(MONTHS_BETWEEN(to_date(SYSDATE),to_date(date_of_birth)),1
-2),4))|| ' days ' AS "Age"
-  5      FLOOR(MOD(MOD(MONTHS_BETWEEN(to_date(SYSDATE),to_date(date_of_birth)),1
-2),4))|| ' days ' AS "Age";
-    FLOOR(MOD(MOD(MONTHS_BETWEEN(to_date(SYSDATE),to_date(date_of_birth)),12),4)
-)|| ' days ' AS "Age"
-    *
-ERROR at line 5:
-ORA-00923: FROM keyword not found where expected
-
-
-SQL> SELECT name , ' ' ||
-  2      FLOOR(MONTHS_BETWEEN(to_date(SYSDATE),to_date(HIREDATE*.txt))/12)||' ye
-ars ' ||
-  3      FLOOR(MOD(MONTHS_BETWEEN(to_date(SYSDATE),to_date(HIREDATE)),12)) || '
-months ' ||
-  4      FLOOR(MOD(MOD(MONTHS_BETWEEN(to_date(SYSDATE),to_date(HIREDATE)),12),4)
-)|| ' days '
-  5  FROM EMP;
-    FLOOR(MONTHS_BETWEEN(to_date(SYSDATE),to_date(HIREDATE*.txt))/12)||' years '
- ||
-                                                           *
-ERROR at line 2:
-ORA-00936: missing expression
-
-
-SQL> SELECT name , ' ' ||
-  2      FLOOR(MONTHS_BETWEEN(to_date(SYSDATE),to_date(HIREDATE))/12)||' years '
- ||
-  3      FLOOR(MOD(MONTHS_BETWEEN(to_date(SYSDATE),to_date(HIREDATE)),12)) || '
-months ' ||
-  4      FLOOR(MOD(MOD(MONTHS_BETWEEN(to_date(SYSDATE),to_date(HIREDATE)),12),4)
-)|| ' days '
-  5  FROM EMP;
-SELECT name , ' ' ||
-       *
-ERROR at line 1:
-ORA-00904: "NAME": invalid identifier
 
 
 SQL> SELECT Ename , ' ' ||
@@ -2328,6 +2049,33 @@ ENAME      JOB              SAL
 SMITH      CLERK            800
 FORD       ANALYST         3000
 SCOTT      ANALYST         3000
+
+14 rows selected.
+
+
+SQL> select Ename, HIREDATE
+  2  from emp
+  3  order by round(HIREDATE,'month');
+
+ENAME      HIREDATE
+---------- ---------
+SMITH      17-DEC-80
+ALLEN      20-FEB-81
+WARD       22-FEB-81
+JONES      02-APR-81
+BLAKE      01-MAY-81
+CLARK      09-JUN-81
+TURNER     08-SEP-81
+MARTIN     28-SEP-81
+KING       17-NOV-81
+JAMES      03-DEC-81
+FORD       03-DEC-81
+
+ENAME      HIREDATE
+---------- ---------
+MILLER     23-JAN-82
+SCOTT      19-APR-87
+ADAMS      23-MAY-87
 
 14 rows selected.
 
