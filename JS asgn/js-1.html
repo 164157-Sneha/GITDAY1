@@ -8,16 +8,15 @@
 
 <script >
 
+var mass1=prompt("enter the mass","enter");
+var height1=prompt("enter the height","enter");
+var BMI_1=mass1/(height1*height1);
 
-var marks_weight = prompt(" weight " , " enter ");
-var marks_height = prompt(" height " , " enter ");
-var johns_weight = prompt(" weight " , " enter ");
-var johns_height = prompt(" height " , " enter ");
+var mass2=prompt("enter the mass","enter");
+var height2=prompt("enter the height","enter");
+var BMI_2=mass2/(height2*height2);
 
-var BMI_1 = marks_weight/(marks_height * marks_height);
-
-var BMI_2 = johns_weight/(johns_height * johns_height);
-document.write(" Is Marks BMI greater than Johns?" )
+document.write(" Is Marks BMI greater than Johns? ","<br/>");
 
 if(BMI_1 > BMI_2)
 {

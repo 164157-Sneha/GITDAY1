@@ -1,34 +1,35 @@
 <html>
 <head>
-<title> Celsius conversion </title>
-<script type="javascript">
-
-function Farenheit()
+<script>
+						
+function findCelsius(){
+var fahrenheit = document.getElementById("fahrenheit").value;
+var celsius;
+if(fahrenheit != '')
 {
-var f, celsius;
-f = document.getElementById("numb").value;
-
-
-if (isNaN(f) || f == " " )
-{
- alert("please enter a valid value");
-}
-else
-{
-celsius = (f-32)*(5/9);
-  return celsius;
+celsius = (fahrenheit - 32) * 5/9;
+document.getElementById("output").innerHTML = celsius;
+}else{
+document.getElementById("output").innerHTML = "Please enter a value!";
 }
 }
-document.getElementById("result")inner.HTML= celsius;
-
+						
+function allowOnlyNumbers(evt) {
+evt = (evt) ? evt : window.event;
+var charCode = (evt.which) ? evt.which : evt.keyCode;
+if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+return false;
+}
+return true;
+}
+		
 </script>
 </head>
-
 <body>
-<p> Please enter a Value</p>
-<input id="numb">
-<button type="button"  onclick= "Farenheit();" >Submit</button>
-<p id = "result"></p>
+<h2>Enter Fahrenheit</h2>
+<input type="text" id="fahrenheit" onkeypress="return allowOnlyNumbers()" />
+<button onclick="findCelsius()" >Find Celsius</button>
+ 
+<h4>Output: <span id="output"></span></h4>
 </body>
 </html>
-

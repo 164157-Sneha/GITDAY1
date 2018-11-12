@@ -880,7 +880,7 @@ WARD
 
 SQL> SELECT LAST_DAY(HIREDATE) FROM EMP;
 
-LAST_DAY(
+LAST_DAY
 ---------
 31-DEC-80
 28-FEB-81
@@ -2079,6 +2079,29 @@ ADAMS      23-MAY-87
 
 14 rows selected.
 
-SQL>
+SQL> SELECT EXTRACT(MONTH FROM HIREDATE) AS MONTH, EXTRACT(YEAR FROM HIREDATE) A
+S YEAR FROM EMP ORDER BY EXTRACT(MONTH FROM HIREDATE);
+
+     MONTH       YEAR
+---------- ----------
+         1       1982
+         2       1981
+         2       1981
+         4       1981
+         4       1987
+         5       1987
+         5       1981
+         6       1981
+         9       1981
+         9       1981
+        11       1981
+
+     MONTH       YEAR
+---------- ----------
+        12       1980
+        12       1981
+        12       1981
+
+14 rows selected.
 
 
