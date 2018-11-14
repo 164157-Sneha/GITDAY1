@@ -1,0 +1,46 @@
+<html>
+<head>
+<title> Methods and Objects </title>
+</head>
+<body>
+<h1> BODY MASS INDEX </h1>
+<script>
+var m1 = {
+                   Name : "Mark",
+	 Mass : 68,
+	 Height : 5.5,
+	 BMI_1 : function()
+                            {
+	              return this.Mass/(this.Height*this.Height);
+	          }
+} ;
+
+var m2 ={
+                   Name : "John",
+	 Mass : 54,
+	 Height : 5.8,
+	 BMI_2 : function()
+                            {
+	              return this.Mass/(this.Height*this.Height);
+	          }
+};
+
+
+document.write(m1.BMI_1()+ "<br/>");
+document.write(m2.BMI_2()+ "<br/>");
+
+if(m1.BMI_1>m2.BMI_2)
+{
+  document.write(true);
+}
+else
+{
+ document.write(false);
+}
+
+
+console.log(m1.BMI_1>m2.BMI_2);
+
+</script>
+</body>
+</html>
