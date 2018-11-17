@@ -1,25 +1,31 @@
-<!DOCTYPE html>
 <html>
+<head>
+<title>Products</title>
+</head>
 <body>
-
-<h2>JavaScript Functions</h2>
-
-<p>Farenheit </p>
-
 <script>
-function toCelsius(f) 
-{
-if(isNaN(f) || f == " ")
-{ 
-  alert("please enter a valid value");
-}
-else
-{
-    return (5/9) * (f-32);
-}
-}
-document.write("converted value is:", toCelsius( ));
-</script>
 
-</body>
-</html>
+var product_id;
+var productname;
+var productprice;
+var productdes;
+
+function PrintAllproduct()
+{
+  product_id = prompt("enter the id","enter");
+  productname = prompt("enter the name","enter");
+  productprice = prompt("enter the price of the product", "enter");
+  productdes = prompt("enter the desc of the product", "enter");
+  console.log(product_id); 
+  console.log(productname); 
+  console.log(productprice); 
+  console.log(productdes); 
+
+ }
+  PrintAllproduct();
+
+ 
+ </script>
+ </body>
+ </html>
+ 
