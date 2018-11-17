@@ -6,8 +6,8 @@
 <h1> BODY MASS INDEX </h1>
 <script>
 var m1 = {
-                   Name : "Mark",
-	 Mass : 68,
+     Name : "Mark",
+	 Mass : 42,
 	 Height : 5.5,
 	 BMI_1 : function()
                             {
@@ -16,12 +16,12 @@ var m1 = {
 } ;
 
 var m2 ={
-                   Name : "John",
+     Name : "John",
 	 Mass : 54,
 	 Height : 5.8,
 	 BMI_2 : function()
                             {
-	              return this.Mass/(this.Height*this.Height);
+	              return this.Mass/(this.Height*this.Height);   
 	          }
 };
 
@@ -29,17 +29,17 @@ var m2 ={
 document.write(m1.BMI_1()+ "<br/>");
 document.write(m2.BMI_2()+ "<br/>");
 
-if(m1.BMI_1>m2.BMI_2)
+if(m1.BMI_1()> m2.BMI_2())
 {
   document.write(true);
+  console.log(m1.BMI_1());
 }
 else
 {
  document.write(false);
+ console.log(m2.BMI_2());
 }
 
-
-console.log(m1.BMI_1>m2.BMI_2);
 
 </script>
 </body>
