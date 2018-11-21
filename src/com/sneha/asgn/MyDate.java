@@ -1,4 +1,4 @@
-package com.sneha.service.support;
+package com.sneha.amd.supp;
 
 public class MyDate {
 
@@ -41,4 +41,6 @@ public class MyDate {
 	public String toString() {
 		return "MyDate [dd=" + dd + ", mm=" + mm + ", yyyy=" + yyyy + "]";
 	}
+	
+	
 }
