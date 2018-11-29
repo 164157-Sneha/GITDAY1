@@ -7,7 +7,7 @@ public class OrderStatus {
 		Order price = (amount)-> {
 			if(amount>10000)
 			{
-				System.out.println("Order accepted" + amount);
+				System.out.println("Order accepted and being processed" + "\n" + amount);
 			}
 			else
 			{
@@ -16,7 +16,7 @@ public class OrderStatus {
 			
 		};
 		
-		 price.status(10000);
+		 price.status(50000);
 
 	}
 
