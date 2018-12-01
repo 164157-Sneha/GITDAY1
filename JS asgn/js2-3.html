@@ -1,0 +1,34 @@
+<html>
+<head>
+<title> Car Models </title>
+</head>
+<body>
+<script>
+
+var car1 = {
+			make  : "Renault",
+			model :	"Duster",	
+			color : "Brown",
+			year  : 2015,
+			Specification1 : function()
+			{
+				return this.make + "->" + this.model + "->" + this.color + "->" + this.year  ;
+			}
+			};
+var car2 = {
+			make  : "Suzuki" ,
+			model :	"Swift",	
+			color : "Black",
+			year  : 2008,
+			Specification2 : function()
+			{
+				return this.make + "->" + this.model + "->" + this.color + "->" + this.year ;
+			}
+};
+
+alert(car1.Specification1() +"\n" + car2.Specification2());
+
+</script>
+</body>
+</html>
+			

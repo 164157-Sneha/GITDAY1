@@ -1,0 +1,41 @@
+<html>
+<head>
+<title> Restuarant Bill </title>
+</head>
+<body>
+<script>
+var bill = new Array(124,48,268);
+var tip = new Array(3);
+var finalAmt = new Array(3);
+
+for(i=0;i<3;i++)
+{
+  if(bill[i] < 50)
+{
+  tip[i]= (0.2)*bill[i];
+}
+else if(bill[i]>50 && bill[i]<200)
+{
+ tip[i] = (0.15)*bill[i];
+}
+else
+{
+tip[i] = (0.1)*bill[i];
+}
+}
+
+for(i=0;i<3;i++)
+{
+ document.write("The tip paid in hotel is"+ tip[i] +"<br/>");
+}
+ 
+for(i=0;i<3;i++)
+{
+finalAmt[i] = bill[i]+tip[i];
+document.write("The final amount paid is"+finalAmt[i]+"<br/>");
+}
+</script></body>
+</html>
+
+  
+  

@@ -1,0 +1,31 @@
+<html>
+<head>
+<script type = "text/javascript" >
+
+function Time()
+{
+var currentTime = new Date()
+var hours = currentTime.getHours()
+var minutes = currentTime.getMinutes()
+var seconds = currentTime.getSeconds()
+
+hours = AddZero(hours)
+minutes = AddZero(minutes)
+seconds = AddsZero(seconds)
+
+document.write("<b>"+hours+" hours "+minutes+" minutes "+seconds+" seconds </b>")
+}
+  
+function AddZero(i)
+{
+if(i<10)
+{
+i="o" +i
+}
+return i
+}
+</script>
+</head>
+<body onload = "Time()">
+</body>
+</html> 
