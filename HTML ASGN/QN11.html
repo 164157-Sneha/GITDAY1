@@ -1,0 +1,56 @@
+<! DOCTYPE html>
+<html>
+<head>
+<title> My Details</title>
+</head>
+<body>
+<script>
+
+localStorage.setItem("Emp_Name" , "Sneha"); 
+localStorage.setItem("Emp_ID" , "164157");
+localStorage.setItem("Salary" , "25000"); 
+localStorage.setItem("Address" , "Whitefield"); 
+localStorage.setItem("Mob_no" , "9900481902"); 
+localStorage.setItem("City" , "Bangalore"); 
+localStorage.setItem("Pin-code" , "560066");
+localStorage.setItem("Email-id" , "snehakashyap22as@gmail.com"); 
+
+document.write( localStorage.getItem("Emp_Name"));
+document.write( localStorage.getItem("Emp_ID")); 
+document.write( localStorage.getItem("Salary")); 
+document.write( localStorage.getItem("Address")); 
+document.write( localStorage.getItem("Mob_no")); 
+document.write( localStorage.getItem("City")); 
+document.write( localStorage.getItem("Pin-code")); 
+document.write( localStorage.getItem("Email-id")); 
+
+
+document.write("After deleting Salary , Address and Mobile number"); 
+localStorage.removeItem("Salary");
+localStorage.removeItem("Address");
+localStorage.removeItem("Mob_no");
+
+document.write( "Emp_namelocalStorage.getItem("Emp_Name"));
+document.write( localStorage.getItem("Emp_ID")); 
+document.write( localStorage.getItem("Salary")); 
+document.write( localStorage.getItem("Address")); 
+document.write( localStorage.getItem("Mob_no")); 
+document.write( localStorage.getItem("City")); 
+document.write( localStorage.getItem("Pin-code")); 
+document.write( localStorage.getItem("Email-id")); 
+
+localStorage.clear();
+
+document.write( localStorage.getItem("Emp_Name"));
+document.write( localStorage.getItem("Emp_ID")); 
+document.write( localStorage.getItem("Salary")); 
+document.write( localStorage.getItem("Address")); 
+document.write( localStorage.getItem("Mob_no")); 
+document.write( localStorage.getItem("City")); 
+document.write( localStorage.getItem("Pin-code")); 
+document.write( localStorage.getItem("Email-id"));
+
+
+</script>
+</body>
+</html>
